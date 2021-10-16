@@ -1,11 +1,13 @@
-import java.util.Iterator;
+import java.util.*;
 import java.util.LinkedList;
-import java.util.NoSuchElementException;
+import java.util.function.Consumer;
 
 public class TwoSideLinkedListImp<E> extends SimpleLinkedListImp<E>
-        implements TwoSideLinkedList<E>,
-                   Iterable<E>{
+        implements Iterable<E>,
+        TwoSideLinkedList<E>
+                  {
    protected Node<E> last;
+   protected int index=0;
 
     @Override
     public boolean insertLast(E value) {
@@ -72,6 +74,10 @@ public class TwoSideLinkedListImp<E> extends SimpleLinkedListImp<E>
     public E getLast() {
         return last.item;
     }
+    @Override
+    public Iterator<E> iterator() {
+        return new LinkedListIterator(first);
+    }
 
     @Override
     public E removeLast() {
@@ -81,25 +87,27 @@ public class TwoSideLinkedListImp<E> extends SimpleLinkedListImp<E>
    return removeLastNode.item;
     }
 
-    @Override
-    public Iterator<E> iterator() {
-        return new LinkedListIterator();
-    }
 
     private class LinkedListIterator implements Iterator<E>{
-        @Override
-        public boolean hasNext() {
-            return  false;
-        }
+        private Node<E> next;
+        private LinkedListIterator(Node<E> list){
+                              next = list;
+                          }
+                          @Override
+                          public boolean hasNext() {
+                              return  next!=null;
+                          }
 
-        @Override
-        public E next() {
-            return null;
-        }
+                          @Override
+                          public E next() {
+                              E result =next.item;
+                              next= next.next;
+                              return result;
+                          }
 
-        @Override
-        public void remove() {
-            Iterator.super.remove();
-        }
-    }
+                          @Override
+                          public void remove() {
+                              Iterator.super.remove();
+                          }
+                      }
 }
