@@ -2,9 +2,38 @@ public class Main {
 
 
     public static void main(String[] args) {
+LinkedList<Integer> linkedList = new SimpleLinkedListImp<>();
+        linkedList.insertFirst(32);
+        linkedList.insertFirst(2);
+        linkedList.insertFirst(5);
+        linkedList.insertFirst(65);
+        linkedList.insertFirst(8);
+        linkedList.insertFirst(63);
+        linkedList.insertFirst(7);
+        linkedList.insertFirst(6);
+        linkedList.insertFirst(67);
+        linkedList.display();
+
+       System.out.println("Delete " +  linkedList.removeFirst());
+        System.out.println("Delete " +  linkedList.removeFirst());
+        System.out.println("Delete 65 :" + linkedList.remove(65));
+        System.out.println("Delete 64 :" +  linkedList.remove(64));
+
+        linkedList.display();
 
 
-        int[] arrayNumber1 = new int []{1,2,3,4,5,6,7,8,9,10,12,13,14,15} ;
+
+
+
+
+
+
+
+
+
+    }
+}
+     /*   int[] arrayNumber1 = new int []{1,2,3,4,5,6,7,8,9,10,12,13,14,15} ;
         int[] arrayNumber2 = new int []{1,2,4,5,6} ;
         int[] arrayNumber3 = new int []{} ;
         System.out.println(findNumber(arrayNumber1)+"");
@@ -48,5 +77,4 @@ public class Main {
     }
 
 
-}
-//C:\Users\pavel\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\WhatsApp
+}*/
