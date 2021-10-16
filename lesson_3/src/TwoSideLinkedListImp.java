@@ -2,24 +2,26 @@ public class TwoSideLinkedListImp<E> extends SimpleLinkedListImp<E> implements T
    protected Node<E> last;
 
     @Override
-    public void insertLast(E value) {
+    public boolean insertLast(E value) {
         Node<E> newNode = new Node<>(value,null);
 
         if(isEmpty()){
             insertFirst(value);
-            return;
+            return false;
         }
         last.next = newNode;
         last= newNode;
         size++;
+        return false;
     }
 
     @Override
-    public void insertFirst(E value) {
+    public boolean insertFirst(E value) {
         super.insertFirst(value);
         if(size==1){
             last = first;
         }
+        return false;
     }
 
     @Override
@@ -62,5 +64,25 @@ public class TwoSideLinkedListImp<E> extends SimpleLinkedListImp<E> implements T
     @Override
     public E getLast() {
         return last.item;
+    }
+
+    @Override
+    public E removeLast() {
+        Node<E> removeLastNode = first;
+        Node<E> endNode = null;
+        if(isEmpty()){
+          return null;
+        }
+        while (removeLastNode!=null){
+            if(removeLastNode.equals(last)){
+                break;
+            }
+            endNode=removeLastNode;
+            removeLastNode=removeLastNode.next;
+        }
+        endNode.next=null;
+        last=endNode;
+        size--;
+   return removeLastNode.item;
     }
 }

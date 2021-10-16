@@ -3,9 +3,10 @@ public class SimpleLinkedListImp<E>  implements  LinkedList<E>{
     protected int size;
 
     @Override
-    public void insertFirst(E value) {
+    public boolean insertFirst(E value) {
         first = new Node<>(value,first);
         size++;
+        return false;
     }
 
     @Override

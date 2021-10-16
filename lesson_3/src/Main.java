@@ -4,28 +4,25 @@ public class Main {
 
 
     public static void main(String[] args) {
-//LinkedList<Integer> linkedList = new SimpleLinkedListImp<>();
-        TwoSideLinkedList linkedList = new TwoSideLinkedListImp<>();
-        linkedList.insertFirst(32);
-        linkedList.insertFirst(2);
-        linkedList.insertFirst(5);
-        linkedList.insertFirst(65);
-        linkedList.insertFirst(8);
-        linkedList.insertFirst(63);
-        linkedList.insertFirst(7);
-        linkedList.insertFirst(6);
-        linkedList.insertFirst(67);
-        linkedList.insertLast(2222);
-        linkedList.display();
+        DequeInit linkedDeque = new LinkedDeque<>();
+     //   TwoSideLinkedList linkedList = new TwoSideLinkedListImp<>();
+        linkedDeque.insertLeft(32);
+        linkedDeque.insertLeft(2);
+        linkedDeque.insertLeft(5);
+        linkedDeque.insertLeft(65);
+        linkedDeque.insertLeft(8);
+        linkedDeque.insertRight(1111);
+      System.out.println(  linkedDeque.removeRight());
+        linkedDeque.insertRight(2222);
 
-       System.out.println("Delete " +  linkedList.removeFirst());
-        System.out.println("Delete " +  linkedList.removeFirst());
-        System.out.println("Delete 65 :" + linkedList.remove(65));
-        System.out.println("Delete 32 :" +  linkedList.remove(2222));
+    //  System.out.println("Delete " +  linkedList.removeFirst());
+      //  System.out.println("Delete " +  linkedList.removeFirst());
+       // System.out.println("Delete 65 :" + linkedList.remove(65));
+        //System.out.println("Delete 32 :" +  linkedList.remove(2222));
 
-        linkedList.display();
+        linkedDeque.display();
 
-        StackImp<Integer> stack = new LinkedListStack<>();
+    /*    StackImp<Integer> stack = new LinkedListStack<>();
         if(!stack.isEmpty()){
             stack.pop();
         }
@@ -41,7 +38,7 @@ public class Main {
         stack.pop();
        System.out.println("Peek = " +stack.peek());
         stack.display();
-
+*/
 
 
 

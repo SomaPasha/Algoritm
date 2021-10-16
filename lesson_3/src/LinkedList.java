@@ -1,5 +1,5 @@
 public interface LinkedList<E> {
-    void insertFirst(E value);
+    boolean insertFirst(E value);
 
     E removeFirst();
 
