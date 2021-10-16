@@ -4,7 +4,8 @@ public class Main {
 
 
     public static void main(String[] args) {
-LinkedList<Integer> linkedList = new SimpleLinkedListImp<>();
+//LinkedList<Integer> linkedList = new SimpleLinkedListImp<>();
+        TwoSideLinkedList linkedList = new TwoSideLinkedListImp<>();
         linkedList.insertFirst(32);
         linkedList.insertFirst(2);
         linkedList.insertFirst(5);
@@ -14,12 +15,13 @@ LinkedList<Integer> linkedList = new SimpleLinkedListImp<>();
         linkedList.insertFirst(7);
         linkedList.insertFirst(6);
         linkedList.insertFirst(67);
+        linkedList.insertLast(2222);
         linkedList.display();
 
        System.out.println("Delete " +  linkedList.removeFirst());
         System.out.println("Delete " +  linkedList.removeFirst());
         System.out.println("Delete 65 :" + linkedList.remove(65));
-        System.out.println("Delete 64 :" +  linkedList.remove(64));
+        System.out.println("Delete 32 :" +  linkedList.remove(2222));
 
         linkedList.display();
 
