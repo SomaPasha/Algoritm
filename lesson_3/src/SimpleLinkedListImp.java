@@ -4,7 +4,10 @@ public class SimpleLinkedListImp<E>  implements  LinkedList<E>{
 
     @Override
     public boolean insertFirst(E value) {
-        first = new Node<>(value,first);
+        first = new Node<>(value,first,null);
+        if(first.next!=null){
+       first.next.prev =first;
+        }
         size++;
         return false;
     }
@@ -16,6 +19,7 @@ public class SimpleLinkedListImp<E>  implements  LinkedList<E>{
       }
       Node<E> removerNode = first;
       first = first.next;
+      first.prev=null;
       removerNode.next = null;
       size--;
       return  removerNode.item;
@@ -33,6 +37,7 @@ public class SimpleLinkedListImp<E>  implements  LinkedList<E>{
             prev = current;
             current= current.next;
         }
+
         if(current==null){
             return  false;
         }
@@ -41,9 +46,10 @@ public class SimpleLinkedListImp<E>  implements  LinkedList<E>{
             return true;
         }
         prev.next = current.next;
+        current.next.prev=prev.next;
         current.next=null;
+        current.prev= null;
         size--;
-
         return true;
     }
 

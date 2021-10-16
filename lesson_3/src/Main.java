@@ -1,27 +1,41 @@
+import java.util.LinkedList;
 import java.util.Stack;
 
 public class Main {
 
 
     public static void main(String[] args) {
-        DequeInit linkedDeque = new LinkedDeque<>();
-     //   TwoSideLinkedList linkedList = new TwoSideLinkedListImp<>();
-        linkedDeque.insertLeft(32);
+      //  DequeInit linkedDeque = new LinkedDeque<>();
+        TwoSideLinkedList linkedList = new TwoSideLinkedListImp<>();
+      /*  linkedDeque.insertLeft(32);
         linkedDeque.insertLeft(2);
         linkedDeque.insertLeft(5);
         linkedDeque.insertLeft(65);
         linkedDeque.insertLeft(8);
         linkedDeque.insertRight(1111);
       System.out.println(  linkedDeque.removeRight());
-        linkedDeque.insertRight(2222);
+        linkedDeque.insertRight(2222);*/
 
-    //  System.out.println("Delete " +  linkedList.removeFirst());
+        linkedList.insertFirst(12);
+        linkedList.insertFirst(4334);
+        linkedList.insertFirst(1);
+        linkedList.insertLast(34);
+        linkedList.display();
+     System.out.println("Delete " +  linkedList.removeLast());
       //  System.out.println("Delete " +  linkedList.removeFirst());
        // System.out.println("Delete 65 :" + linkedList.remove(65));
         //System.out.println("Delete 32 :" +  linkedList.remove(2222));
 
-        linkedDeque.display();
+        linkedList.display();
+LinkedList<Integer> l = new LinkedList<>();
+    l.add(11);
+    l.add(13);
+    l.toString();
 
+
+        for(Integer value:l){
+            System.out.println("value: " + value);
+        }
     /*    StackImp<Integer> stack = new LinkedListStack<>();
         if(!stack.isEmpty()){
             stack.pop();

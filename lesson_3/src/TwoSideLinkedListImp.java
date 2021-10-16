@@ -1,14 +1,21 @@
-public class TwoSideLinkedListImp<E> extends SimpleLinkedListImp<E> implements TwoSideLinkedList<E>{
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.NoSuchElementException;
+
+public class TwoSideLinkedListImp<E> extends SimpleLinkedListImp<E>
+        implements TwoSideLinkedList<E>,
+                   Iterable<E>{
    protected Node<E> last;
 
     @Override
     public boolean insertLast(E value) {
-        Node<E> newNode = new Node<>(value,null);
+        Node<E> newNode = new Node<>(value,null,last);
 
         if(isEmpty()){
             insertFirst(value);
             return false;
         }
+
         last.next = newNode;
         last= newNode;
         size++;
@@ -68,21 +75,31 @@ public class TwoSideLinkedListImp<E> extends SimpleLinkedListImp<E> implements T
 
     @Override
     public E removeLast() {
-        Node<E> removeLastNode = first;
-        Node<E> endNode = null;
-        if(isEmpty()){
-          return null;
-        }
-        while (removeLastNode!=null){
-            if(removeLastNode.equals(last)){
-                break;
-            }
-            endNode=removeLastNode;
-            removeLastNode=removeLastNode.next;
-        }
-        endNode.next=null;
-        last=endNode;
+        Node<E> removeLastNode = last;
+        last.prev.next=null;
         size--;
    return removeLastNode.item;
+    }
+
+    @Override
+    public Iterator<E> iterator() {
+        return new LinkedListIterator();
+    }
+
+    private class LinkedListIterator implements Iterator<E>{
+        @Override
+        public boolean hasNext() {
+            return  false;
+        }
+
+        @Override
+        public E next() {
+            return null;
+        }
+
+        @Override
+        public void remove() {
+            Iterator.super.remove();
+        }
     }
 }
