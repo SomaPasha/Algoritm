@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 public class Main {
 
 
@@ -21,11 +23,22 @@ LinkedList<Integer> linkedList = new SimpleLinkedListImp<>();
 
         linkedList.display();
 
+        StackImp<Integer> stack = new LinkedListStack<>();
+        if(!stack.isEmpty()){
+            stack.pop();
+        }
 
-
-
-
-
+       stack.push(12);
+        stack.push(16);
+        stack.push(22);
+        stack.push(5);
+        stack.push(1);
+        stack.push(32);
+        stack.push(3);
+        stack.display();
+        stack.pop();
+       System.out.println("Peek = " +stack.peek());
+        stack.display();
 
 
 
